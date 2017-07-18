@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	
+	* {margin:0;padding:0;}
+	body {font-family:隶书;}
+	.clearfix:after{content:"020";display:block;height:0;clear:both;visibility:hidden}.clearfix{*zoom:1}
+	#xiangqi {margin:15px;padding:1px;border:5px solid #999;width:410px;position:relative;}
+	#xiangqi li {list-style:none;}
+	#qipan {padding:2px 0 0 2px;background:#999;width:408px;}
+	#qipan li {float:left;width:49px;height:49px;margin:0 2px 2px 0;background:#ccc;}
+	#qipan .n5th {margin-right:0;width:51px;height:51px;line-height:51px;font-size:25px;color:#666;}
+	#qipan .last {height:51px;line-height:51px;}
+	#qipan .transform {
+		progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+		-webkit-transform:rotate(-180deg);
+		-moz-transform:rotate(-180deg);
+	}
+	#qipan .triangle-1 {
+		border-color:transparent transparent #666 transparent;
+		border-style:solid;
+		border-width:0 49px 49px 0;
+		height:0px;
+		width:0px;
+		position:relative;
+	}
+	#qipan .triangle-1 div {
+		border-color:transparent transparent #ccc transparent;
+		border-style:solid;
+		border-width:0 48px 48px 0;
+		height:0px;
+		width:0px;
+		position:absolute;
+		bottom:-49px;
+		right:-48px;
+	}
+	#qipan .triangle-2 {
+		border-color:transparent #666 transparent #666;
+		border-style:solid;
+		border-width:0 0 49px 49px;
+		height:0px;
+		width:0px;
+		position:relative;
+	}
+	#qipan .triangle-2 div {
+		border-color:transparent #ccc transparent #ccc;
+		border-style:solid;
+		border-width:0 0 48px 48px;
+		height:0px;
+		width:0px;
+		position:absolute;
+		top:0;
+		left:-49px;
+	}
+
+	#qizi {width:450px;height:503px;position:absolute;top:-20px;left:-20px;}
+	#qizi li {float: left;border-radius:30px;border:5px solid #986838;width:40px;height:40px;line-height:40px;text-align:center;font-size:30px;background-color:#d8a478;}
+	#qizi .place {border-radius:0;border:0 none;width:50px;height:50px;background:transparent;}
+	.black {color:black;}
+	.red {color:red;}
+
+</style>
+</head>
+<body>
+
+	<div id="xiangqi">
+	    <ul id="qipan" class="clearfix">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li>
+				<div class="triangle-1">
+					<div></div>
+				</div>
+			</li>
+			<li>
+				<div class="triangle-2">
+					<div></div>
+				</div>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li>
+				<div class="triangle-2">
+					<div></div>
+				</div>
+			</li>
+			<li>
+				<div class="triangle-1">
+					<div></div>
+				</div>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li class="n5th"></li>
+			<li class="n5th">楚</li>
+			<li class="n5th">河</li>
+			<li class="n5th"></li>
+			<li class="n5th"></li>
+			<li class="n5th transform">界</li>
+			<li class="n5th transform">漢</li>
+			<li class="last"></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li>
+				<div class="triangle-1">
+					<div></div>
+				</div>
+			</li>
+			<li>
+				<div class="triangle-2">
+					<div></div>
+				</div>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li>
+				<div class="triangle-2">
+					<div></div>
+				</div>
+			</li>
+			<li>
+				<div class="triangle-1">
+					<div></div>
+				</div>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul id="qizi">
+			<li class="black che">車</li>
+			<li class="black ma">馬</li>
+			<li class="black xiang">象</li>
+			<li class="black shi">士</li>
+			<li class="black jiang">將</li>
+			<li class="black shi">士</li>
+			<li class="black xiang">象</li>
+			<li class="black ma">馬</li>
+			<li class="black che">車</li>
+			
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+
+			<li class="place"></li>
+			<li class="black pao">炮</li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="black pao">炮</li>
+			<li class="place"></li>
+
+			<li class="black zu">卒</li>
+			<li class="place"></li>
+			<li class="black zu">卒</li>
+			<li class="place"></li>
+			<li class="black zu">卒</li>
+			<li class="place"></li>
+			<li class="black zu">卒</li>
+			<li class="place"></li>
+			<li class="black zu">卒</li>
+
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+
+			<li class="red bing">兵</li>
+			<li class="place"></li>
+			<li class="red bing">兵</li>
+			<li class="place"></li>
+			<li class="red bing">兵</li>
+			<li class="place"></li>
+			<li class="red bing">兵</li>
+			<li class="place"></li>
+			<li class="red bing">兵</li>
+
+			<li class="place"></li>
+			<li class="red pao">炮</li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="red pao">炮</li>
+			<li class="place"></li>
+
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+			<li class="place"></li>
+
+			<li class="red che">車</li>
+			<li class="red ma">馬</li>
+			<li class="red xiang">相</li>
+			<li class="red shi">仕</li>
+			<li class="red shuai">帥</li>
+			<li class="red shi">仕</li>
+			<li class="red xiang">相</li>
+			<li class="red ma">馬</li>
+			<li class="red che">車</li>
+		</ul>
+	</div>
+	
+</body>
+</html>
