@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>动态加载JS文件</h1>
+    loadScript('test.js')<br>
+    function loadScript(url) {<br>
+        var script = document.createElement("script");<br>
+        script.type = "text/javascript";<br>
+        script.src = url;<br>
+        document.body.appendChild(script);<br>
+    }<br>
+<script>
+    loadScript('test.js')
+    function loadScript(url) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = url;
+        document.body.appendChild(script);
+    }
+</script>
+</body>
+</html>
