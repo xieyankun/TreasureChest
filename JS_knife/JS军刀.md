@@ -1,4 +1,4 @@
-```
+```javascript
 // 动态加载JS文件
 loadScript('test.js')
 
@@ -38,7 +38,7 @@ function loadScript(url, callback){
 
 ```
 
-```
+```javascript
 // js 去掉字符串前后空格
 // zepto 版本
 String.prototype.trim = function() {
@@ -51,7 +51,7 @@ function trim(str){
 ```
 
 
-```
+```javascript
 // 判断数组
 if (!Array.isArray) {
   Array.isArray = function(arg) {
