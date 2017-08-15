@@ -12,6 +12,7 @@ function loadScript(url) {
 }
 
 <!-- 回调函数 -->
+[The best way to load external JavaScript](https://www.nczonline.net/blog/2009/07/28/the-best-way-to-load-external-javascript/)
 function loadScript(url, callback){
 
     var script = document.createElement("script")
