@@ -6,19 +6,35 @@
     <script src="https://unpkg.com/vue@2.4.2"></script>
 
 <style>
-    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        text-align: center;
+    }
+    li{
+      line-height: 36px;
+      list-style: none;
+      cursor: pointer;
+    }
     .active{
         color: red;
+    }
+    .menu, .menu2, .run-result{
+        width: 400px;
+        border: 1px solid #999;
+        margin: 12px;
     }
     .menu{
       display: flex;
     }
-    ul{
+    .menu ul{
       flex: 1;
       height: 36px;
       background: #eee;
     }
-    li{
+    .menu li{
       float: left;
       padding: 0px 24px;
       line-height: 36px;
@@ -40,6 +56,13 @@
             <div class="" v-if="n==2">tab3</div>
             <div class="" v-if="n==3">tab4</div>
         </div>
+        <br>
+        <div class="menu2">
+            <div :class="{active: checked == 'all'}" @click="checked='all'">所有</div>
+            <ul>
+                <li :class="{active: checked == index}" v-for="(item, index) in menus" @click="checked=index">{{item.name}}</li>
+            </ul>
+        </div>
     </div>
 
 
@@ -55,7 +78,8 @@
                 {name: 'tab3'},
                 {name: 'tab4'}
             ],
-            n: 0
+            n: 0,
+            checked: 'all'
         },
         methods: {
             toggle (index) {
