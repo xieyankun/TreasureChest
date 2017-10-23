@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  <form action="" method="post">
+    <label class="radio-square" data-sex="1">男</label>
+    <input  type="radio" id="gender_male" value="m" name="gender" checked required />
+
+    <label class="radio-square fr" data-sex="0">女</label>
+    <input  type="radio" id="gender_female" value="f" name="gender"/>
+  </form>
+
+  <button type="submit" onclick="submit()">提交</button>
+
+<script src="../libs/jquery-2.0.3.js"></script> 
+<script>
+  var submit = function() {
+    console.log('0000')
+    console.log($("input[name='gender'][checked]").val())
+
+  }
+
+  $(function(){
+    
+  })
+</script> 
+</body>
+</html>

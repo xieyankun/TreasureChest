@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        border: 2px solid #999;
+    }
+</style>
+</head>
+<body>
+    <div class="box"></div>
+
+<script>
+    // 捕获阶段绑定事件
+    window.addEventListener("click", function(e){
+        console.log(e);
+        console.log("window click 捕获", e.target.nodeName, e.currentTarget.nodeName);
+    }, true);
+
+    window.addEventListener("touchstart", function(e){
+        console.log(e);
+        console.log("window touchstart 捕获", e.target.nodeName, e.currentTarget.nodeName);
+    }, true);
+
+</script>
+</body>
+</html>

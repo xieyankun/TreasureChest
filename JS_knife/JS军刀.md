@@ -1,8 +1,8 @@
 ```javascript
-// åŠ¨æ€åŠ è½½JSæ–‡ä»¶
+// ¶¯Ì¬¼ÓÔØJSÎÄ¼ş
 loadScript('test.js')
 
-<!-- ç®€åŒ–ç‰ˆ -->
+<!-- ¼ò»¯°æ -->
 function loadScript(url) {
 
     var script = document.createElement("script");
@@ -11,7 +11,7 @@ function loadScript(url) {
     document.body.appendChild(script);
 }
 
-<!-- å›è°ƒå‡½æ•° -->
+<!-- »Øµ÷º¯Êı -->
 [The best way to load external JavaScript](https://www.nczonline.net/blog/2009/07/28/the-best-way-to-load-external-javascript/)
 function loadScript(url, callback){
 
@@ -40,20 +40,30 @@ function loadScript(url, callback){
 ```
 
 ```javascript
-// js å»æ‰å­—ç¬¦ä¸²å‰åç©ºæ ¼
-// zepto ç‰ˆæœ¬
+// js È¥µô×Ö·û´®Ç°ºó¿Õ¸ñ
+// zepto °æ±¾
 String.prototype.trim = function() {
     return this.replace(/^\s+|\s+$/g, '')
 }
-// jquery ç‰ˆæœ¬
+// jquery °æ±¾
 function trim(str){   
     return str.replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'');   
 }
 ```
 
+```javascript
+// »ñÈ¡URL²ÎÊı
+function getUrlParam(name) {
+    var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1)
+        return undefined;
+    return decodeURIComponent(result[1]);
+}
+```
+
 
 ```javascript
-// åˆ¤æ–­æ•°ç»„
+// ÅĞ¶ÏÊı×é
 if (!Array.isArray) {
   Array.isArray = function(arg) {
     return Object.prototype.toString.call(arg) === '[object Array]';
