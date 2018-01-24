@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>{{message}}</h1>
+    <div>
+      <p>{{ count }}</p>
+        <p>
+          <button @click="increment">+</button>
+          <button @click="decrement">-</button>
+        </p>
+    </div>
+  </div>
+
+<script src="vue.js"></script>
+<script src="vuex.js">+</script>
+<script>
+  const store = new Vuex.Store({
+    state: {
+      count: 0
+    },
+    mutations: {
+      // increment (state) {
+      //   state.count++
+      // }
+      increment: state => state.count++,
+      decrement: state => state.count--
+    }
+  })
+
+  new Vue({
+    el: "#app",
+    computed: {
+      count() {
+        return store.state.count
+      }
+    },
+    data: {
+      message: "Hello world"
+    },
+    methods: {
+      increment() {
+        store.commit('increment')
+      },
+      decrement() {
+        store.commit('decrement')
+      }
+    }
+  })
+
+  store.commit('increment')
+  store.commit('increment')
+  store.commit('increment')
+  console.log(store.state.count)
+</script>   
+</body>
+</html>

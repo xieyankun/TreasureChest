@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    function BinaryTree() {
+        var Node = function(key){   // 定义节点对象
+            this.key = key          // 节点数值
+            this.left = null        // 左尖头
+            this.right = null       // 右尖头
+        }
+
+        var root = null;            // 定义根节点
+
+        this.insert = function(key) {  // 插入节点
+            var newNode = new Node(key);
+            if (root === null) {
+                root = newNode;
+            } else {
+                insertNode(root, newNode)
+            }
+        }
+
+        this.inOrderTraverse = function(callback) {
+            inOrderTraverseNode(root, callback)
+        }
+
+        this.getRood = function() {
+            return root;
+        }
+    }
+
+    var nodes = [8, 3, 10, 1, 6, 14, 4, 7, 13]
+
+    var binaryTree = new BinaryTree();
+
+    nodes.forEach(function(key){
+        binaryTree.insert(key)
+    })
+
+    console.log(binaryTree.getRood())
+
+    binaryTree.inOrderTraverse(callback)
+
+
+    function insertNode(node, newNode){
+        if (newNode.key < node.key) {
+            if (node.left === null) {
+                node.left = newNode
+            } else {
+                insertNode(node.left, newNode)
+            }
+        } else {
+            if (node.right === null) {
+                node.right = newNode
+            } else {
+                insertNode(node.right, newNode)
+            }
+        }
+    }
+
+    function inOrderTraverseNode(node, callback) {
+        if (node != null) {
+            inOrderTraverseNode(node.left, callback)
+            callback(node.key)
+            inOrderTraverseNode(node.right, callback)
+        }
+    }
+
+    function callback(key) {
+        console.log(key)
+    }
+
+
+
+</script>
+</body>
+</html>

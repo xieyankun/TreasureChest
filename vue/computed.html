@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <p>{{fullName}}</p>
+  </div>
+
+<script src="vue.js"></script>
+<script src="vuex.js">+</script>
+<script>
+
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      firstName: 'Hello',
+      lastName: 'World',
+      message: "Hello world"
+    },
+    computed: {
+      fullName: {
+        // getter
+        get: function () {
+          console.log('get----')
+          return this.firstName + ' ' + this.lastName
+        },
+        // setter
+        set: function (newValue) {
+          var names = newValue.split(' ')
+          console.log('newValue----', newValue)
+          console.log('names', names)
+          // this.firstName = names[0]
+          // this.lastName = names[names.length - 1]
+        }
+      }
+    },
+    created() {
+      // console.log(this)
+    }
+  })
+</script>   
+</body>
+</html>

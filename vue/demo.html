@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <p>{{message}}</p>
+    <!-- <p>{{ count }}</p>
+    <div>
+      <p>{{ count }}</p>
+        <p>
+          <button @click="increment">+</button>
+          <button @click="decrement">-</button>
+        </p>
+    </div> -->
+  </div>
+
+<script src="vue.js"></script>
+<script src="vuex.js">+</script>
+<script>
+  const store = new Vuex.Store({
+    state: {
+      count: 0,
+      todos: [
+        { id: 1, text: '...', done: true },
+        { id: 2, text: '...', done: false },
+        { id: 3, text: '...', done: true }
+      ]
+    },
+    mutations: {
+      increment: (state, payload) => {
+        console.log('---=')
+        state.count += payload.amount
+      },
+      decrement: (state, payload) => state.count -= payload.amount
+    },
+    getters: {
+      doneTodos: state => {
+        return state.todos.filter(todo => todo.done)
+        // return state.todos.filter(function(todo){
+        //   return todo.done
+        // })
+      },
+      getTodoById: (state, getters) => (id) => {
+        return state.todos.find(todo => todo.id === id)
+      }
+    },
+    actions: {
+      // incrementAsync ({ commit }) {
+      //   setTimeout(() => {
+      //     commit('increment')
+      //   }, 3000)
+      // }
+      increment (context) {
+        console.log('context')
+        context.commit('increment')
+      }
+    }
+  })
+
+  const Counter = {
+    template: `<div>{{ count }}</div>`,
+    computed: {
+      count () {
+        return this.$store.state.count
+      }
+    }
+  }
+  const CountHandle = {
+    template: `
+      <p>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
+      </p>
+    `,
+    computed: {
+    },
+    methods: {
+      increment() {
+        this.$store.commit('increment', {
+          amount: 10
+        })
+        // this.$store.commit({
+        //   type: 'increment',
+        //   amount: 10
+        // })
+        // console.log(this.$store.getters.doneTodos)
+        // console.log(this.$store.getters.getTodoById)
+      },
+      decrement() {
+        this.$store.commit('decrement', {
+          amount: 5
+        })
+      }
+    }
+  }
+
+  new Vue({
+    el: "#app",
+    store,
+    components: { Counter, CountHandle },
+    template: `
+      <div class="app">
+        <counter></counter>
+        <count-handle></count-handle>
+      </div>
+    `,
+    computed: {
+    },
+    created() {
+      console.log(this.$store.getters.doneTodos)
+    },
+    data() {
+      message: this.$store.getters.doneTodos
+    }
+  })
+
+
+  // store.commit('increment')
+  // store.commit('increment')
+  // store.commit('increment')
+  // console.log(store.state.count)
+</script>   
+</body>
+</html>
